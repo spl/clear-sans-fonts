@@ -73,9 +73,11 @@ article][typographica-review]:
 * Mozilla later [removed][mozilla-removed] Clear Sans in favor of Roboto for the
   Firefox for Android browser.
 * There is another typeface named [Clear Sans][other-clear-sans] by Neil
-  Summerour.
+  Summerour. See this [TypeDrawers discussion][other-clear-sans-discussion].
 * Google Fonts has an [open issue][google-fonts-clear-sans] to add Clear Sans,
   but there are unresolved trademark and technical concerns.
+* [Opak Sans][opak-sans] is a “re-shaped version” of Clear Sans. It has been
+  “paired down and adjusted to work well with the Freetype font render engine.”
 
 [clear-sans-announcement]: https://01.org/clear-sans/blogs/2013/clear-sans-new-font-optimized-small-screen-readability
 [clear-sans-release]: https://01.org/clear-sans/downloads/2013/clear-sans-1.00
@@ -83,6 +85,8 @@ article][typographica-review]:
 [license]: ./license.md
 [mozilla-added]: https://bugzilla.mozilla.org/show_bug.cgi?id=877203
 [mozilla-removed]: https://bugzilla.mozilla.org/show_bug.cgi?id=1392147
+[opak-sans]: https://github.com/vernnobile/opakSansFont
+[other-clear-sans-discussion]: https://typedrawers.com/discussion/586/clear-sans
 [other-clear-sans]: http://clear.positype.com/
 [project-page]: https://01.org/clear-sans
 [typographica-review]: https://typographica.org/typeface-reviews/clear-sans/
