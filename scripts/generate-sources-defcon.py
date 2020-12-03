@@ -12,17 +12,17 @@ fileName = sys.argv[1]
 font = defcon.Font()
 
 # File paths
-ttfFilePath = os.path.join(os.path.join("..", "fonts", "ttf"), fileName + ".ttf")
-ufoFilePath = os.path.join(os.path.join("..", "sources"), fileName + ".ufo")
+ttf = os.path.join(os.path.join("..", "fonts", "ttf"), fileName + ".ttf")
+ufo = os.path.join(os.path.join("..", "sources"), fileName + ".ufo")
 
 # Load the TrueType font data into the font object
-extractor.extractUFO(ttfFilePath, font)
+extractor.extractUFO(ttf, font)
 
 # Save the font object as a UFO (Unified Font Object)
-font.save(ufoFilePath)
+font.save(ufo)
 
 # Close the font object since we are going to normalize it next
 font.close()
 
 # Normalize the UFO without writing modification times
-ufonormalizer.normalizeUFO(ufoFilePath, writeModTimes=False)
+ufonormalizer.normalizeUFO(ufo, writeModTimes=False)

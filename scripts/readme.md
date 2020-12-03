@@ -21,10 +21,10 @@ To install the dependencies, run:
 
 ## Running
 
-# To create new UFO sources, run:
+# To generate new UFO sources, run:
 
 ```sh
-./extractUfo.sh
+./generate-sources-defcon.sh
 ```
 
 ## Formatting code
