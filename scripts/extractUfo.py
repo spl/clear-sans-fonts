@@ -2,43 +2,27 @@ import defcon
 import extractor
 import os
 import pathlib
+import sys
 import ufonormalizer
 
-# Base file names of all of the Clear Sans fonts
-baseFileNames = [
-    "ClearSans-Bold",
-    "ClearSans-BoldItalic",
-    "ClearSans-Italic",
-    "ClearSans-Light",
-    "ClearSans-Medium",
-    "ClearSans-MediumItalic",
-    "ClearSans-Regular",
-    "ClearSans-Thin",
-]
+# The only argument is the base name of the font. No directory or extension.
+fileName = sys.argv[1]
 
-# Directory paths
-ttfFontsPath = os.path.join("..", "fonts", "ttf")
-ufoSourcesPath = os.path.join("..", "sources")
+# Create a new empty defcon font object
+font = defcon.Font()
 
-# Create the UFO sources directory if it does not exist
-pathlib.Path(ufoSourcesPath).mkdir(parents=True, exist_ok=True)
+# File paths
+ttfFilePath = os.path.join(os.path.join("..", "fonts", "ttf"), fileName + ".ttf")
+ufoFilePath = os.path.join(os.path.join("..", "sources"), fileName + ".ufo")
 
-for baseFileName in baseFileNames:
-    # Create a new Font object
-    font = defcon.Font()
+# Load the TrueType font data into the font object
+extractor.extractUFO(ttfFilePath, font)
 
-    # File paths
-    ttfFilePath = os.path.join(ttfFontsPath, baseFileName + ".ttf")
-    ufoFilePath = os.path.join(ufoSourcesPath, baseFileName + ".ufo")
+# Save the font object as a UFO (Unified Font Object)
+font.save(ufoFilePath)
 
-    # Load the TrueType font data into the Font object
-    extractor.extractUFO(ttfFilePath, font)
+# Close the font object since we are going to normalize it next
+font.close()
 
-    # Save the Font object as a UFO (Unified Font Object)
-    font.save(ufoFilePath)
-
-    # Close the font since we are going to normalize it next
-    font.close()
-
-    # Normalize the UFO without writing modification times
-    ufonormalizer.normalizeUFO(ufoFilePath, writeModTimes=False)
+# Normalize the UFO without writing modification times
+ufonormalizer.normalizeUFO(ufoFilePath, writeModTimes=False)
